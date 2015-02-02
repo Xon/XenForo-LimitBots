@@ -1,2 +1,2 @@
 # XenForo-BotThreadView
-Stop bots from incrementing the view counter
+Stop bots from incrementing the thread view counter
