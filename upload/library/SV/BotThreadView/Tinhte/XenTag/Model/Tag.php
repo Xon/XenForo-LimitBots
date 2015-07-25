@@ -12,7 +12,7 @@ class SV_BotThreadView_Tinhte_XenTag_Model_Tag extends XFCP_SV_BotThreadView_Tin
                 return;
             }
         }
-        
+
         parent::logTagView($tagView);
     }
 }

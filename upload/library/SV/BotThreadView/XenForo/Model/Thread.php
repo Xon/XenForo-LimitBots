@@ -12,7 +12,7 @@ class SV_BotThreadView_XenForo_Model_Thread extends XFCP_SV_BotThreadView_XenFor
                 return;
             }
         }
-        
+
         parent::logThreadView($threadid);
     }
 }
