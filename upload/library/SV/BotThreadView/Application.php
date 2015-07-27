@@ -6,7 +6,7 @@ class SV_BotThreadView_Application
 	{
 		if (!XenForo_Application::isRegistered('session'))
 		{
-			return true;
+			return false;
 		}
 
 		$session = XenForo_Application::getSession();
