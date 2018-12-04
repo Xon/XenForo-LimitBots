@@ -6,10 +6,31 @@ class SV_BotThreadView_Application
 	{
 		if (!XenForo_Application::isRegistered('session'))
 		{
-			return false;
+			return true;
 		}
 
-		$session = XenForo_Application::getSession();
-		return ($session->get('robotId'));
+        $session = XenForo_Application::getSession();
+		if ($session->get('robotId'))
+        {
+            return true;
+        }
+
+        $visitor = XenForo_Visitor::getInstance()->toArray();
+        if ($visitor['is_banned'])
+        {
+            return true;
+        }
+
+        $options = XenForo_Application::getOptions();
+        if (!empty($options->svZeroPostUsersAsBots))
+        {
+            if (!$visitor['message_count'] || !$visitor['like_count'])
+            {
+                return true;
+            }
+        }
+
+
+		return false;
 	}
 }
