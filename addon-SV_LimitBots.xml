@@ -20,6 +20,12 @@
   <email_template_modifications/>
   <optiongroups>
     <group group_id="svLimitBots" display_order="12700" debug_only="0"/>
+    <option option_id="svCountGuestViews" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="svLimitBots" display_order="20"/>
+    </option>
     <option option_id="svZeroPostUsersAsBots" edit_format="onoff" data_type="boolean" can_backup="1">
       <default_value>1</default_value>
       <edit_format_params></edit_format_params>
@@ -35,6 +41,8 @@
   <phrases>
     <phrase title="option_group_svLimitBots" version_id="1030000" version_string="1.3.0"><![CDATA[Limit Bots]]></phrase>
     <phrase title="option_group_svLimitBots_description" version_id="1030000" version_string="1.3.0"><![CDATA[]]></phrase>
+    <phrase title="option_svCountGuestViews" version_id="1030000" version_string="1.3.0"><![CDATA[Count guests views]]></phrase>
+    <phrase title="option_svCountGuestViews_explain" version_id="1030000" version_string="1.3.0"><![CDATA[]]></phrase>
     <phrase title="option_svZeroPostUsersAsBots" version_id="1030000" version_string="1.3.0"><![CDATA[Treat zero post users as bots]]></phrase>
     <phrase title="option_svZeroPostUsersAsBots_explain" version_id="1030000" version_string="1.3.0"><![CDATA[For counting views, skip users who do not have a post count or a like count]]></phrase>
   </phrases>

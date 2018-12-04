@@ -2,15 +2,15 @@
 
 class SV_BotThreadView_Application
 {
-	public static function isBot()
-	{
-		if (!XenForo_Application::isRegistered('session'))
-		{
-			return true;
-		}
+    public static function isBot()
+    {
+        if (!XenForo_Application::isRegistered('session'))
+        {
+            return true;
+        }
 
         $session = XenForo_Application::getSession();
-		if ($session->get('robotId'))
+        if ($session->get('robotId'))
         {
             return true;
         }
@@ -22,7 +22,12 @@ class SV_BotThreadView_Application
         }
 
         $options = XenForo_Application::getOptions();
-        if (!empty($options->svZeroPostUsersAsBots))
+
+        if (!empty($options->svCountGuestViews) && empty($visitor['user_id']))
+        {
+            return false;
+        }
+        else if (!empty($options->svZeroPostUsersAsBots))
         {
             if (!$visitor['message_count'] || !$visitor['like_count'])
             {
@@ -30,7 +35,6 @@ class SV_BotThreadView_Application
             }
         }
 
-
-		return false;
-	}
+        return false;
+    }
 }
