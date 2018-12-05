@@ -4,7 +4,7 @@ class SV_BotThreadView_XenForo_ControllerPublic_Forum extends XFCP_SV_BotThreadV
 {
     protected function _getDisplayConditions(array $forum)
     {
-        if (SV_BotThreadView_Application::isBot())
+        if (SV_BotThreadView_Application::isBot(false))
         {
             list($defaultOrder, $defaultOrderDirection) = $this->_getDefaultThreadSort($forum);
 

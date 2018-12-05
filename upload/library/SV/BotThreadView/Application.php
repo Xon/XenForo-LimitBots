@@ -2,7 +2,7 @@
 
 class SV_BotThreadView_Application
 {
-    public static function isBot()
+    public static function isBot($checkUser = true)
     {
         if (!XenForo_Application::isRegistered('session'))
         {
@@ -19,6 +19,11 @@ class SV_BotThreadView_Application
         if ($visitor['is_banned'])
         {
             return true;
+        }
+
+        if (!$checkUser)
+        {
+            return false;
         }
 
         $options = XenForo_Application::getOptions();
